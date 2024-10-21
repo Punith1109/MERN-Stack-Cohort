@@ -6,10 +6,6 @@ const app = express();
 let requestCount = 0;
 
 app.use((req,res,next)=>{
-  if(requestCount>=5){
-    res.json({msg:'Limit reached'})
-    return
-  }
   requestCount=requestCount+1;
   
   next(); 
@@ -24,12 +20,10 @@ app.get('/user', function(req, res) {
 
 
   res.status(200).json({ name: 'john' });
-  requestCount=requestCount+1;
 });
 
 app.post('/user', function(req, res) {
   res.status(200).json({ msg: 'created dummy user' });
-  requestCount=requestCount+1;
 });
 
 app.get('/requestCount', function(req, res) {
