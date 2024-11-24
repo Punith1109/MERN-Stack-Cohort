@@ -30,5 +30,5 @@ app.get('/requestCount', function(req, res) {
   res.status(200).json({ requestCount });
 });
 
-app.listen(3000)
+app.listen(3001)
 module.exports = app;

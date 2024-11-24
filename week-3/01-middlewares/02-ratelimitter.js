@@ -15,12 +15,11 @@ app.use(express.json());
 let numberOfRequestsForUser=0;
 setInterval(() => {
     numberOfRequestsForUser = {};
-    console.log("Called");
-  }, 20000)
+  }, 5000)
 app.use((req,res,next)=>{
   numberOfRequestsForUser=numberOfRequestsForUser+1;
-  if(numberOfRequestsForUser >4){
-    res.json
+  if(numberOfRequestsForUser >5){
+    res.status(404).json
     ({msg:"Many requests"})
   }
   next();
@@ -40,8 +39,6 @@ app.post('/user', function(req, res) {
   console.log(numberOfRequestsForUser);
 });
 
-app.listen(3000,()=>{
-  console.log("Server started");
-  
+app.listen(3002,()=>{
 })
 module.exports = app;
